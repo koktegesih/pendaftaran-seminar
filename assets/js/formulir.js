@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Submit form
   form.addEventListener("submit", function (event) {
     event.preventDefault();
+    console.log("✅ Submit dicegah, fetch akan dijalankan");
 
     const namaLengkap = document.getElementById("nama-lengkap").value.trim();
     const email = document.getElementById("email").value.trim();
