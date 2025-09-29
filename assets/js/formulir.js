@@ -15,15 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.getElementById("email").value;
     const noTelp = document.getElementById("no-telp").value;
     const buktifollow = document.getElementById("buktifollow").files[0];
-    const asalKampus = document.getElementById("asal-kampus").value;
-      document.querySelector('input[name="punya_laptop"]:checked')?.value || "";
+    const asalSekolah = document.getElementById("asal-sekolah").value;
+    const punyaLaptop = document.querySelector('input[name="punya_laptop"]:checked')?.value || "";
 
     const formData = new FormData();
     formData.append("nama-lengkap", namaLengkap);
     formData.append("email", email);
     formData.append("no-telp", noTelp);
     formData.append("bukti-follow", buktifollow);
-    formData.append("asal-kampus", asalKampus);
+    formData.append("asal-sekolah", asalSekolah);
 
     const requestOptions = {
       method: "POST",
