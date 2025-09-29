@@ -6,7 +6,7 @@ document.querySelector("#buktifollow").addEventListener("change", function (e) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
-  const endpoint = `https://pendaftaran-coc-api.up.railway.app/api/pendaftar/add`;
+  const endpoint = `https://pendaftaran-seminar-api-production.up.railway.app/api/pendaftar/add`;
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();

@@ -11,7 +11,7 @@ async function fetchDataPendaftar() {
     return;
   }
 
-  const url = "https://pendaftaran-coc-api.up.railway.app/api/pendaftar/get";
+  const url = "https://pendaftaran-seminar-api-production.up.railway.app/api/pendaftar/get";
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -47,7 +47,7 @@ function renderTableData(data) {
       <td>
         <i class="fas fa-image text-primary" 
            style="cursor: pointer;" 
-           data-image-url="https://pendaftaran-coc-api.up.railway.app/api/pendaftar/uploads/${
+           data-image-url="https://pendaftaran-seminar-api-production.up.railway.app/api/pendaftar/uploads/${
              pendaftar["bukti-follow"]
            }"
            onclick="showImageModal(this.getAttribute('data-image-url'))"
@@ -107,7 +107,7 @@ async function downloadImagesAsZip() {
   try {
     for (let i = 0; i < registrantData.length; i++) {
       const pendaftar = registrantData[i];
-      const imageUrl = `https://pendaftaran-coc-api.up.railway.app/api/pendaftar/uploads/${pendaftar["bukti-follow"]}`;
+      const imageUrl = `https://pendaftaran-seminar-api-production.up.railway.app/api/pendaftar/uploads/${pendaftar["bukti-follow"]}`;
       const fileName = pendaftar["bukti-follow"] || `image_${i + 1}.jpg`;
 
       try {
