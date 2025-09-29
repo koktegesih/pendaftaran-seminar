@@ -1,10 +1,12 @@
-// Event listener untuk file input + preview
+// Preview file + update label
 document.querySelector("#buktifollow").addEventListener("change", function (e) {
   if (e.target.files.length > 0) {
-    var fileName = e.target.files[0].name;
-    var nextSibling = e.target.nextElementSibling;
-    nextSibling.innerText = fileName;
+    const fileName = e.target.files[0].name;
 
+    // update label dengan aman
+    document.querySelector("label[for='buktifollow']").innerText = fileName;
+
+    // preview image
     const preview = document.getElementById("preview-bukti");
     preview.src = URL.createObjectURL(e.target.files[0]);
     preview.style.display = "block";
@@ -23,9 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.getElementById("email").value.trim();
     const noTelp = document.getElementById("no-telp").value.trim();
     const asalSekolah = document.getElementById("asal-sekolah").value.trim();
+    const punyaLaptop = document.getElementById("punya-laptop").value.trim();
     const buktifollow = document.getElementById("buktifollow").files[0];
 
-    if (!namaLengkap || !email || !noTelp || !asalSekolah) {
+    // validasi
+    if (!namaLengkap || !email || !noTelp || !asalSekolah || !punyaLaptop) {
       alert("Harap isi semua field dengan benar!");
       return;
     }
@@ -34,13 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // buat form data
     const formData = new FormData();
     formData.append("nama-lengkap", namaLengkap);
     formData.append("email", email);
     formData.append("no-telp", noTelp);
     formData.append("asal-sekolah", asalSekolah);
+    formData.append("punya-laptop", punyaLaptop);
     formData.append("bukti-follow", buktifollow);
 
+    // kirim ke server
     fetch(endpoint, {
       method: "POST",
       body: formData,
@@ -56,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("✅ " + data.message);
           form.reset();
           document.getElementById("preview-bukti").style.display = "none";
-          document.querySelector(".custom-file-label").innerText =
-            "Upload bukti follow Instagram";
+          document.querySelector("label[for='buktifollow']").innerText =
+            "Pilih file...";
         } else {
           alert("⚠️ " + data.message);
         }
