@@ -1,82 +1,110 @@
 (function () {
   "use strict";
 
-  // Password toggle functionality
-  const passwordInput = document.getElementById("login-password");
-  const passwordToggle = document.getElementById("password-toggle");
+  // Tunggu hingga DOM benar-benar siap
+  document.addEventListener("DOMContentLoaded", function () {
+    // === Toggle Password Visibility ===
+    const passwordInput = document.getElementById("login-password");
+    const passwordToggle = document.getElementById("password-toggle");
 
-  passwordToggle.addEventListener("click", function () {
-    const type =
-      passwordInput.getAttribute("type") === "password" ? "text" : "password";
-    passwordInput.setAttribute("type", type);
-    this.classList.toggle("fa-eye");
-    this.classList.toggle("fa-eye-slash");
+    if (passwordToggle && passwordInput) {
+      passwordToggle.addEventListener("click", function () {
+        const isPassword = passwordInput.getAttribute("type") === "password";
+        passwordInput.setAttribute("type", isPassword ? "text" : "password");
+        this.classList.toggle("fa-eye", !isPassword);
+        this.classList.toggle("fa-eye-slash", isPassword);
+      });
+    }
+
+    // === Fungsi Login ke API ===
+    async function loginUser(username, password) {
+      // 🔴 Perbaikan: Hapus spasi di akhir URL!
+      const url =
+        "https://pendaftaran-seminar-api-production.up.railway.app/api/admin/login";
+      const form = document.getElementById("login-form");
+      const usernameInput = document.getElementById("login-username");
+      const passwordInput = document.getElementById("login-password");
+
+      // Reset validasi visual
+      form.classList.remove("was-validated");
+      usernameInput.classList.remove("valid");
+      passwordInput.classList.remove("valid");
+
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          console.log("Login successful:", result);
+          // Tandai input sebagai valid
+          usernameInput.classList.add("valid");
+          passwordInput.classList.add("valid");
+          // Simpan token (jika ada)
+          if (result.token) {
+            localStorage.setItem("authToken", result.token);
+          }
+          // Redirect ke halaman pendaftar
+          window.location.href = "pendaftar.html";
+        } else {
+          console.error("Login failed:", result);
+          const message = result.message || "Username atau password salah.";
+          alert("Login gagal: " + message);
+
+          // Tandai form sebagai tidak valid
+          form.classList.add("was-validated");
+          usernameInput.setCustomValidity("Invalid");
+          passwordInput.setCustomValidity("Invalid");
+        }
+      } catch (error) {
+        console.error("Network or parsing error:", error);
+        alert("Gagal terhubung ke server. Periksa koneksi internet Anda.");
+        form.classList.add("was-validated");
+        usernameInput.setCustomValidity("Invalid");
+        passwordInput.setCustomValidity("Invalid");
+      }
+    }
+
+    // === Event Listener Submit Form ===
+    const loginForm = document.getElementById("login-form");
+    if (!loginForm) {
+      console.warn(
+        "Form login tidak ditemukan. Pastikan ID 'login-form' ada di HTML."
+      );
+      return;
+    }
+
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const usernameInput = document.getElementById("login-username");
+      const passwordInput = document.getElementById("login-password");
+
+      // Reset custom validity agar validasi HTML5 bekerja ulang
+      usernameInput.setCustomValidity("");
+      passwordInput.setCustomValidity("");
+
+      // Validasi HTML5 bawaan
+      if (!loginForm.checkValidity()) {
+        event.stopPropagation();
+        loginForm.classList.add("was-validated");
+        return;
+      }
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      if (username && password) {
+        loginUser(username, password);
+      } else {
+        alert("Username dan password tidak boleh kosong.");
+      }
+    });
   });
 })();
-
-async function loginUser(username, password) {
-  const url = "https://pendaftaran-seminar-api-production.up.railway.app/api/admin/login";
-  const data = { username, password };
-  const form = document.getElementById("login-form");
-  const usernameInput = document.getElementById("login-username");
-  const passwordInput = document.getElementById("login-password");
-
-  // Reset validation classes
-  form.classList.remove("was-validated");
-  usernameInput.classList.remove("valid");
-  passwordInput.classList.remove("valid");
-
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-    if (response.ok) {
-      console.log("Login successful:", result);
-      // Apply valid styles only on success
-      usernameInput.classList.add("valid");
-      passwordInput.classList.add("valid");
-      localStorage.setItem("authToken", result.token);
-      window.location.href = "pendaftar.html";
-    } else {
-      console.error("Login failed: ", result);
-      alert("Login failed: " + result.message);
-      // Mark inputs as invalid
-      form.classList.add("was-validated");
-      usernameInput.setCustomValidity("Invalid");
-      passwordInput.setCustomValidity("Invalid");
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    alert("An error occurred during login. Please try again later.");
-    // Mark inputs as invalid
-    form.classList.add("was-validated");
-    usernameInput.setCustomValidity("Invalid");
-    passwordInput.setCustomValidity("Invalid");
-  }
-}
-
-const loginForm = document.getElementById("login-form");
-
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const form = this;
-
-  // Reset custom validity
-  document.getElementById("login-username").setCustomValidity("");
-  document.getElementById("login-password").setCustomValidity("");
-
-  if (!form.checkValidity()) {
-    event.stopPropagation();
-    form.classList.add("was-validated");
-  } else {
-    const username = document.getElementById("login-username").value;
-    const password = document.getElementById("login-password").value;
-    loginUser(username, password);
-  }
-});

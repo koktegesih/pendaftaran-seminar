@@ -378,20 +378,25 @@
                     </button>
                   </div>
 
-                  <!-- Form Pendaftaran -->
-                  <form id="register-form">
+                  <form
+                    role="form"
+                    method="post"
+                    enctype="multipart/form-data"
+                    id="register-form"
+                  >
                     <!-- Nama -->
                     <div class="form-group mb-3">
                       <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="ni ni-single-02"></i>
-                          </span>
+                          <span class="input-group-text"
+                            ><i class="ni ni-single-02"></i
+                          ></span>
                         </div>
                         <input
                           type="text"
                           class="form-control"
                           id="nama-lengkap"
+                          name="nama_lengkap"
                           placeholder="Nama Lengkap"
                         />
                       </div>
@@ -401,14 +406,15 @@
                     <div class="form-group mb-3">
                       <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="ni ni-email-83"></i>
-                          </span>
+                          <span class="input-group-text"
+                            ><i class="ni ni-email-83"></i
+                          ></span>
                         </div>
                         <input
                           type="email"
                           class="form-control"
                           id="email"
+                          name="email"
                           placeholder="Email"
                         />
                       </div>
@@ -418,36 +424,48 @@
                     <div class="form-group mb-3">
                       <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="ni ni-mobile-button"></i>
-                          </span>
+                          <span class="input-group-text"
+                            ><i class="ni ni-mobile-button"></i
+                          ></span>
                         </div>
                         <input
                           type="text"
                           class="form-control"
                           id="no-telp"
+                          name="telepon"
                           placeholder="Masukkan Nomor Telepon"
                         />
                       </div>
                     </div>
 
-                    <!-- Asal Sekolah -->
+                    <!-- Kampus -->
                     <div class="form-group mb-3">
                       <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="ni ni-building"></i>
-                          </span>
+                          <span class="input-group-text"
+                            ><i class="ni ni-building"></i
+                          ></span>
                         </div>
                         <input
                           type="text"
                           class="form-control"
                           id="asal-sekolah"
+                          name="sekolah"
                           placeholder="Masukkan Asal Kampus"
                         />
                       </div>
                     </div>
                     <br />
+
+                    <!-- Info Instagram -->
+                    <small class="text-uppercase text-muted d-block mb-3">
+                      Pendaftaran ini gratis! Namun, peserta tetap akan
+                      mendapatkan E-sertifikat, relasi, pengalaman, dan ilmu
+                      dari pemateri. Cukup follow Instagram
+                      <b>@coconutdotorg</b> dan lampirkan screenshot sebagai
+                      bukti. <br /><br />
+                      Mudah, bukan? Ayo gabung!
+                    </small>
 
                     <!-- Upload Bukti -->
                     <div class="form-group mb-3">
@@ -456,24 +474,13 @@
                           type="file"
                           class="custom-file-input"
                           id="buktifollow"
+                          name="file"
                           accept=".jpeg,.jpg,.png"
                         />
-                        <label class="custom-file-label" for="buktifollow">
-                          Upload bukti follow Instagram
-                        </label>
+                        <label class="custom-file-label" for="buktifollow"
+                          >Upload bukti follow Instagram</label
+                        >
                       </div>
-                      <!-- Preview Gambar -->
-                      <img
-                        id="preview-bukti"
-                        src=""
-                        alt="Preview Bukti"
-                        style="
-                          display: none;
-                          margin-top: 10px;
-                          max-width: 100%;
-                          border-radius: 8px;
-                        "
-                      />
                     </div>
 
                     <!-- Submit -->
@@ -548,26 +555,17 @@
       src="./assets/js/plugins/nouislider.min.js"
       type="text/javascript"
     ></script>
-    <script
-      src="./assets/js/plugins/moment.min.js"
-      type="text/javascript"
-    ></script>
+    <script src="./assets/js/plugins/moment.min.js"></script>
     <script
       src="./assets/js/plugins/datetimepicker.js"
       type="text/javascript"
     ></script>
-    <script
-      src="./assets/js/plugins/bootstrap-datepicker.min.js"
-      type="text/javascript"
-    ></script>
-
-    <!-- Argon JS -->
+    <script src="./assets/js/plugins/bootstrap-datepicker.min.js"></script>
     <script
       src="./assets/js/argon-design-system.min.js?v=1.2.2"
       type="text/javascript"
     ></script>
-
-    <!-- Custom Form Logic -->
-    <script src="./formulir.js"></script>
+    <script src="./assets/js/formulir.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
