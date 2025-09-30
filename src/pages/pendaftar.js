@@ -64,7 +64,7 @@ export default function Pendaftar() {
 
   const openWhatsApp = () => {
     const waLink =
-      "https://wa.me/6285175401710?text=Halo%20saya%20ingin%20bertanya%20tentang%20informasi%20acara";
+      "https://wa.me/6285175401710?text=Halo%20saya%20ingin%20bertanya%20tentang%20informasi%20kegiatan";
     window.open(waLink, "_blank");
   };
 

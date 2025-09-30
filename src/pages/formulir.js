@@ -210,7 +210,7 @@ export default function Formulir() {
                         <div className="desc-row">
                           <dt>Tempat</dt>
                           <dd>
-                            Algo Coffee & Snack Jl. Mon. Emmy Saelan III (NO.70)
+                            Algo Coffee & Snack Jl. Mon. Emmy Saelan III (No.70)
                           </dd>
                         </div>
                       </dl>
@@ -218,23 +218,27 @@ export default function Formulir() {
                       <p className="description font-weight-bold">Tujuan:</p>
                       <ol className="description pl-3">
                         <li>
-                          Memahami dasar-dasar pengembangan backend, khususnya
-                          dalam membuat REST API.
+                          Memberikan pemahaman mendalam mengenai teknologi inti
+                          5G, khususnya Massive MIMO, Beamforming, dan mmWave.
                         </li>
                         <li>
-                          Mempelajari dasar-dasar bahasa pemrograman Golang
-                          untuk membangun fungsionalitas di sisi server.
+                          Menjelaskan bagaimana mekanisme ketiga teknologi
+                          tersebut bekerja serta perannya dalam meningkatkan
+                          kapasitas dan efisiensi jaringan.
                         </li>
                         <li>
-                          Mampu membangun dan mengimplementasikan API sederhana
-                          menggunakan Golang untuk mendukung aplikasi web atau
-                          mobile.
+                          Mengidentifikasi tantangan implementasi 5G di lapangan
+                          serta solusi yang dapat diterapkan.
                         </li>
                         <li>
-                          Dibekali keterampilan dasar yang kuat untuk memulai
-                          karir sebagai backend developer, dengan pengetahuan
-                          yang tidak hanya teoritis tetapi juga siap diterapkan
-                          dalam proyek pribadi maupun profesional.
+                          Meningkatkan wawasan peserta tentang potensi
+                          pemanfaatan 5G untuk berbagai sektor industri dan
+                          masyarakat.
+                        </li>
+                        <li>
+                          Mendorong diskusi dan kolaborasi antar peserta dalam
+                          mengeksplorasi inovasi dan peluang berbasis teknologi
+                          5G.
                         </li>
                       </ol>
 
@@ -413,7 +417,7 @@ export default function Formulir() {
                             className="form-control form-control-lg"
                             id="no-telp"
                             name="noTelp"
-                            placeholder="Masukkan nomor telepon"
+                            placeholder="Masukkan Nomor Telepon"
                             value={formData.noTelp}
                             onChange={handleInputChange}
                             required
@@ -434,7 +438,7 @@ export default function Formulir() {
                             className="form-control form-control-lg"
                             id="asal-sekolah"
                             name="asalSekolah"
-                            placeholder="Asal perguruan tinggi"
+                            placeholder="Asal Perguruan Tinggi"
                             value={formData.asalSekolah}
                             onChange={handleInputChange}
                             required

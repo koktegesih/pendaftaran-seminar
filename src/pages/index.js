@@ -6,8 +6,8 @@ export default function Home() {
   // Data gallery seminar
   const seminarGallery = [
     {
-      src: "/assets/img/coc 2024-2025/coc4.jpg",
-      alt: "Dokumentasi Seminar COCONUT",
+      src: "/",
+      alt: "Seminar Networking 2025",
       link: "#",
     },
     {
@@ -76,8 +76,8 @@ export default function Home() {
                     </small>
                     <Image
                       src="/assets/img/logococonut.png"
-                      width={112}
-                      height={28}
+                      width={116}
+                      height={35}
                       alt="Coconut Computer Club"
                       priority
                     />
@@ -108,7 +108,10 @@ export default function Home() {
               <div key={idx} className="col-md-4 mb-5">
                 <div className="card card-lift--hover shadow border-0">
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <div className="position-relative" style={{ height: "600px" }}>
+                    <div
+                      className="position-relative"
+                      style={{ height: "600px" }}
+                    >
                       <Image
                         src={item.src}
                         alt={item.alt}

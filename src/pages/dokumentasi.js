@@ -47,12 +47,12 @@ export default function Dokumentasi() {
       <div className="container">
         <div className="row">
           <div className="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h3 className="gallery-title mt-5">
+            <h3 className="gallery-title mt-5 mb-4 text-center">
               DOKUMENTASI KEGIATAN SEMINAR COCONUT
             </h3>
           </div>
 
-          <div className="text-center mb-4">
+          <div className="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center mb-4">
             {topics.map((topic) => (
               <button
                 key={topic}
