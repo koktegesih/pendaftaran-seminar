@@ -8,7 +8,7 @@ export default function Home() {
     {
       src: "/",
       alt: "Seminar Networking 2025",
-      link: "#",
+      link: "https://www.instagram.com/coconutdotorg",
     },
     {
       src: "/assets/img/seminar-blockchain.jpeg",
@@ -19,6 +19,26 @@ export default function Home() {
       src: "/assets/img/seminar-ai.jpeg",
       alt: "Seminar AI 2023",
       link: "https://www.instagram.com/p/CzH_f_fPAB8/",
+    },
+    // Tambahkan lebih banyak di sini jika diperlukan
+  ];
+
+  // Data gallery webinar
+  const webinarGallery = [
+    {
+      src: "/assets/img/webinar-prompting.jpeg",
+      alt: "Webinar Prompting 2025",
+      link: "https://www.instagram.com/p/DH0dVKVP6NA/",
+    },
+    {
+      src: "/assets/img/webinar-blockchain.jpeg",
+      alt: "Webinar Blockchain 2025",
+      link: "https://www.instagram.com/p/DHK6OQ7TVIj/",
+    },
+    {
+      src: "/assets/img/webinar-ai.jpeg",
+      alt: "Webinar AI 2023",
+      link: "https://www.instagram.com/p/C2NgFTFviC8/",
     },
     // Tambahkan lebih banyak di sini jika diperlukan
   ];
@@ -101,7 +121,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Gallery Section */}
+        {/* Gallery Seminar Section */}
+        <h1 className="display-4 text-center text-white">SEMINAR GALLERY</h1>
+        <br />
         <div className="container container-lg" style={{ padding: "1rem" }}>
           <div className="row">
             {seminarGallery.map((item, idx) => (
@@ -110,7 +132,35 @@ export default function Home() {
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
                     <div
                       className="position-relative"
-                      style={{ height: "600px" }}
+                      style={{ height: "500px" }}
+                    >
+                      <Image
+                        src={item.src}
+                        alt={item.alt}
+                        fill
+                        className="card-img"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Gallery Webinar Section */}
+        <h1 className="display-4 text-center text-white">WEBINAR GALLERY</h1>
+        <br />
+        <div className="container container-lg" style={{ padding: "1rem" }}>
+          <div className="row">
+            {webinarGallery.map((item, idx) => (
+              <div key={idx} className="col-md-4 mb-5">
+                <div className="card card-lift--hover shadow border-0">
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <div
+                      className="position-relative"
+                      style={{ height: "500px" }}
                     >
                       <Image
                         src={item.src}
