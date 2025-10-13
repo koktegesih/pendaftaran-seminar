@@ -116,7 +116,7 @@ export default function Formulir() {
                   className="btn btn-sm btn-success btn-tooltip"
                   data-toggle="tooltip"
                   data-placement="top"
-                  title="Pendaftaran Berakhir pada Sabtu, 3 February 2024"
+                  title="Pendaftaran Berakhir pada Kamis, 23 Oktober 2025"
                   data-container="body"
                   data-animation="true"
                 >
@@ -124,8 +124,8 @@ export default function Formulir() {
                 </button>
                 <h3 className="text-white">
                   <span className="text-white display-4">
-                    Magic Behind 5G: Memahami Massive MIMO, Beamforming, dan
-                    mmWave untuk Optimasi Jaringan
+                    IOT-Based Network Management: Solusi Pintar dalam
+                    Pengelolaan Infrastruktur Jaringan
                   </span>
                 </h3>
               </div>
@@ -205,7 +205,7 @@ export default function Formulir() {
                         </div>
                         <div className="desc-row">
                           <dt>Materi</dt>
-                          <dd>Networking</dd>
+                          <dd>IOT</dd>
                         </div>
                         <div className="desc-row">
                           <dt>Tempat</dt>
@@ -218,27 +218,29 @@ export default function Formulir() {
                       <p className="description font-weight-bold">Tujuan:</p>
                       <ol className="description pl-3">
                         <li>
-                          Memberikan pemahaman mendalam mengenai teknologi inti
-                          5G, khususnya Massive MIMO, Beamforming, dan mmWave.
+                          Memahami konsep dasar Internet of Things (IoT) dan
+                          bagaimana teknologi ini dapat diintegrasikan ke dalam
+                          sistem manajemen jaringan modern.
                         </li>
                         <li>
-                          Menjelaskan bagaimana mekanisme ketiga teknologi
-                          tersebut bekerja serta perannya dalam meningkatkan
-                          kapasitas dan efisiensi jaringan.
+                          Menjelaskan peran IoT dalam pemantauan dan pengelolaan
+                          infrastruktur jaringan secara real-time untuk
+                          meningkatkan efisiensi dan keandalan sistem.
                         </li>
                         <li>
-                          Mengidentifikasi tantangan implementasi 5G di lapangan
-                          serta solusi yang dapat diterapkan.
+                          Mengidentifikasi tantangan dan solusi dalam penerapan
+                          IoT-Based Network Management, termasuk aspek keamanan,
+                          skalabilitas, dan interoperabilitas perangkat.
                         </li>
                         <li>
-                          Meningkatkan wawasan peserta tentang potensi
-                          pemanfaatan 5G untuk berbagai sektor industri dan
-                          masyarakat.
+                          Memberikan wawasan tentang penerapan praktis dan studi
+                          kasus penggunaan IoT dalam manajemen jaringan di
+                          berbagai sektor industri.
                         </li>
                         <li>
-                          Mendorong diskusi dan kolaborasi antar peserta dalam
-                          mengeksplorasi inovasi dan peluang berbasis teknologi
-                          5G.
+                          Mendorong peserta untuk mengembangkan inovasi dan
+                          riset lanjutan dalam bidang manajemen jaringan
+                          berbasis IoT sebagai bagian dari transformasi digital.
                         </li>
                       </ol>
 
